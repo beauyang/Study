@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基于localStorage的简单留言板</title>
+</head>
+<body>
+<textarea id="content" name="msg" cols="50" rows="8"></textarea><br/>
+<input type="button" value="添加留言" onclick="addMeg()">
+<input type="button" value="删除留言" onclick="delMeg()">
+<table style="width: 550px">
+    <tr>
+        <td>留言内容</td>
+        <td>留言时间</td>
+    </tr>
+    <tbody id="show">
+    </tbody>
+</table>
+<script>
+    /**
+     * 加载数据
+     */
+    var loadMeg = function () {
+        var tb = document.getElementById('show');
+        //清楚原来显示的内容
+        tb.innerHTML = "";
+        //遍历所有留言信息
+        for (var i = 0; i < localStorage.length; i++){
+            var key = localStorage.key(i);
+            var date = new Date();
+            date.setTime(key);
+            //获取留言时间
+            var datestr = date.toLocaleDateString() + "&nbsp;" + date.toLocaleTimeString();
+            //获取留言内容
+            var value = localStorage.getItem(key);
+
+            //添加行
+            var row = tb.insertRow(i);
+
+            row.insertCell(0).innerHTML = value;
+            row.insertCell(1).innerHTML = datestr;
+        }
+    };
+    /**
+     * 添加数据
+     */
+    var addMeg = function () {
+        var date = new Date();
+        date = date.getTime();
+        var mes = document.getElementById('content');
+        localStorage.setItem(date, mes.value);
+        mes.value = "";
+        alert('留言已经存储！');
+        //重新加载
+        loadMeg();
+    };
+    /**
+     * 删除数据
+     */
+    var delMeg = function () {
+        localStorage.clear();
+        alert('全部留言已经删除');
+        //重新加载
+        loadMeg();
+    }
+</script>
+</body>
+</html>
