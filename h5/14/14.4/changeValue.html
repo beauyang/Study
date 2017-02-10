@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑表格值</title>
+</head>
+<body>
+改变第<input id="row" type="text" size="2"/>行，
+第<input id="cel" type="text" size="2"/>列的值为：
+<input id="celVal" type="text" size="16"/><br/>
+<input id="chg" type="button" value="改变" onclick="change();"/>
+<table id="d" border="1">
+    <caption>Study Java</caption>
+    <tr>
+        <td>java讲义1</td>
+        <td>java 学习1</td>
+    </tr>
+    <tr>
+        <td>java讲义2</td>
+        <td>java 学习2</td>
+    </tr>
+    <tr>
+        <td>java讲义3</td>
+        <td>java 学习3</td>
+    </tr>
+    <script>
+        var change = function () {
+            //获取table
+            var tb = document.getElementById('d');
+            //
+            var row = parseInt(document.getElementById('row').value);
+            var cel = parseInt(document.getElementById('cel').value);
+            //
+            if (isNaN(row)) {
+                alert('您要修改的行必须是整数');
+                return false;
+            }
+            if (isNaN(cel)){
+                alert('您要修改的列必须是整数');
+                return false;
+            }
+            if (row > tb.rows.length || cel > tb.rows.item(0).cells.length){
+                alert('您要修改的值大于允许范围');
+                return false;
+            }
+            //修改单元格的值
+            tb.rows.item(row - 1).cells.item(cel - 1).innerHTML = document.getElementById('celVal').value;
+        }
+    </script>
+</table>
+</body>
+</html>

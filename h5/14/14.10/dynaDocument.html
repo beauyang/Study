@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态添加文档</title>
+</head>
+<body>
+<script type="text/javascript">
+    var n = 0;
+    var win = null;
+    var show = function (mesg) {
+        if (win == null || (win.closed)){
+            win = window.open("", "console", "width = 400, height = 250, resizable");
+            //将弹出窗口的文档打开成一个text/html
+            win.document.open('text/html');
+        }
+        //让弹出窗口的到焦点
+        win.focus();
+        //在弹出窗口装载的文档中输出信息
+        win.document.writeln(mesg);
+    }
+</script>
+<input type="button" value="点击" onclick="show('你点击了' + ++n + '次<br/>')">
+</body>
+</html>

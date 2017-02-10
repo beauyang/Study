@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分析页面加载时间</title>
+    <script>
+        //
+        var start = new Date().getTime();
+        var load = function () {
+            var end = new Date().getTime();
+            var page_load_time = end - start;
+            alert('页面加载时间: ' + page_load_time);
+        }
+    </script>
+</head>
+<body onload="load()">
+<img src="http://www.crazyit.org/logo.jpg" align="java">
+</body>
+</html>
