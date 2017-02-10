@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>accessSelect</title>
+</head>
+<body>
+<select id="mySelect" name="mySelect" size="6">
+    <option value="java">Java</option>
+    <option value="xml">xml</option>
+    <option value="ejb" selected>ejb</option>
+    <option value="ssh">ssh</option>
+    <option value="ssm">ssm</option>
+</select><br/>
+<input type="button" value="第一个" onclick="change(curTarget.options[0]);"/>
+<input type="button" value="上一个" onclick="change(curTarget.options[curTarget.selectedIndex - 1]);"/>
+<input type="button" value="下一个" onclick="change(curTarget.options[curTarget.selectedIndex + 1]);"/>
+<input type="button" value="最后一个" onclick="change(curTarget.options[curTarget.length - 1]);"/>
+<script>
+    var curTarget = document.getElementById('mySelect');
+    var change = function (target) {
+        alert(target.text);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>坐标转换</title>
+</head>
+<body>
+    <canvas id="mc"  width="580" height="400" style="border: 1px solid black;"></canvas>
+
+<script type="text/javascript">
+    /**
+     * translate(float dx,float dy) 平移坐标系统 （x , y）-->（dx,dy）
+     * scale(float sx,float sy) 缩放坐标系统      (x , y)--> （x*sx,y*sy）
+     * rotate(float angle) 旋转坐标系统
+     * save() 保存当前的绘图状态
+     * restore() 恢复之前保存的绘图状态
+     */
+    //
+    var canvas = document.getElementById('mc');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = "rgba(255 , 0 , 0 , 0.3)";
+    //图形绘制
+    ctx.translate(30, 200);
+    for (var i =0 ; i < 50 ; i++){
+        ctx.translate(50 , 50);
+        ctx.scale(0.93 , 0.93);
+        ctx.rotate(-Math.PI / 10);
+        ctx.fillRect(0 , 0 , 150 , 75);
+    }
+</script>
+</body>
+</html>

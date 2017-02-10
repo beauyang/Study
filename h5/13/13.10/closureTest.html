@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>closureTest</title>
+</head>
+<body>
+<script>
+    function Person() {
+        //定义一个局部变量
+        var local = 'hello world';
+        this.info = function () {
+         //此处形成闭包
+            document.writeln('local的值为：' +　local);
+            return local;
+        }
+    }
+    var p = new Person();
+    var ss = p.info();
+    alert(ss);
+</script>
+</body>
+</html>

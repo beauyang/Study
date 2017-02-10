@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="mc" width="600" height="380" style="border: 1px solid black;">
+
+</canvas>
+<script type="text/javascript">
+    /**
+     * 绘制多角星
+     * n:该参数应设置为奇数 ，控制绘制 N 角星
+     * dx、dy : 控制 N 角星的位置
+     * size : 控制 N 角星的大小
+     */
+    function createStar(context , n , dx , dy , size){
+        context.beginPath();
+        var dig = Math.PI / n * 4;
+        for(var i = 0 ; i < n ; i++){
+            var x = Math.sin(i * dig);
+            var y = Math.cos(i * dig);
+            //绘制从当前点连接到指定点的线条
+            context.lineTo(x * size + dx ,y * size + dy);
+
+        }
+        //关闭路径
+        context.closePath();
+    }
+    var canvas = document.getElementById('mc');
+    var ctx = canvas.getContext('2d');
+    //画三角星
+    createStar(ctx , 3 , 60 , 60 , 50);
+    ctx.fillStyle = "#f00";
+    ctx.fill();
+    //画五角星
+    createStar(ctx , 5 , 160 , 60 , 50);
+    ctx.fillStyle = "#0f0";
+    ctx.fill();
+    //画七角星
+    createStar(ctx , 7 , 260 , 60 , 50);
+    ctx.fillStyle = "#00f";
+    ctx.fill();
+    //画九角星
+    createStar(ctx , 9 , 360 , 60 , 50);
+    ctx.fillStyle = "#f0f";
+    ctx.fill();
+</script>
+</body>
+</html>

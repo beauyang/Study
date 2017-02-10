@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new document</title>
+    <style type="text/css">
+        div > h2{
+            counter-increment: categorycounter;
+        }
+        div > div{
+            counter-increment: subcounter;
+        }
+        div > h2:before{
+            content: counter(categorycounter,georgian) ;
+            font-size: 20pt;
+            font-weight: bold;
+        }
+        div > div:before{
+            content: counter(subcounter,cjk-ideographic) '本';
+            font-size: 20pt;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>This is a test</h2>
+        <div>This is a test</div>
+        <div>This is a test</div>
+        <div>This is a test</div>
+        <h2>This is a test</h2>
+        <div>Struts</div>
+        <div>Struts</div>
+    </div>
+</body>
+</html>

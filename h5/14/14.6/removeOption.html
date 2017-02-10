@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>removeOption</title>
+</head>
+<body>
+<input id="opValue" type="text"/>
+<input id="add" type="button" value="add" onclick="add();">
+<input id="del" type="button" value="del" onclick="del();">
+<select id="show" size="8" style="width: 120px;"></select>
+<script>
+    var show = document.getElementById('show');
+    //增加下拉列表项的函数
+    var add = function () {
+        var op = new Option(document.getElementById('opValue').value);
+        //增加选项
+        show.options[show.options.length] = op;
+    }
+    var del = function () {
+        if (show.options.length > 0){
+            //删除最后一个选项
+            show.remove(show.options - 1);
+        }
+    }
+</script>
+</body>
+</html>

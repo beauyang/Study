@@ -1,0 +1,15 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>output</title>
+</head>
+<body>
+	<form action="do">
+		<input id="color1" type="color" name="color1"><br/>
+		<output name="a" for="color1" onforminput="innerHTML=color1.value;"></output><p>
+		<input id="range1" type="range" name="range1" min="0" max="100" step="5">
+		<output name="b" for="range1" onforminput="innerHTML=range1.value;"></output><p>
+		<input type="submit" name="submit">
+	</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>duckType</title>
+</head>
+<body>
+<script>
+    function changeAge(person) {
+        /**
+         * 利用“鸭子类型”的理论，先对传入的参数进行判断
+         */
+        if (typeof(person) == 'object' && typeof (person.age) == 'number'){
+            //判断成立，执行响应的操作
+            document.write('执行前person的age值为:' + person.age + "<br/>");
+            person.age = 10;
+            document.write('执行后person的age值为:' + person.age + "<br/>");
+        }else {
+            document.write('类型不符合要求' + typeof  person + "<br/>");
+        }
+    }
+    changeAge();
+    changeAge(124);
+    changeAge('sss');
+    var person = {age : 19};
+    changeAge(person);
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>factorial</title>
+    <script>
+        //定义求阶乘的函数
+        var factorial = function (number) {
+            //
+            if (typeof(number) == 'number'){
+              if (number == 1){
+                  return 1;
+              } else {
+                  return number * factorial(number - 1);
+              }
+            }else {
+                alert('参数格式不对');
+            }
+        }
+        alert(factorial(5));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>根据节点关系访问HTML元素</title>
+    <style type="text/css">
+        .selected {
+            background-color: #66f;
+        }
+    </style>
+</head>
+<body>
+<ol id="books">
+    <li id="java">疯狂Java讲义</li>
+    <li id="ssh">疯狂ssh讲义</li>
+    <li id="ajax">疯狂ajax讲义</li>
+    <li id="xml">疯狂xml讲义</li>
+    <li id="ejb">疯狂ejb讲义</li>
+</ol>
+<input type="button" value="父节点" onclick="change(curTarget.parentNode);"/>
+<input type="button" value="第一个" onclick="change(curTarget.parentNode.firstChild.nextSibling)">
+<input type="button" value="上一个" onclick="change(curTarget.previousSibling.previousSibling)">
+<input type="button" value="下一个" onclick="change(curTarget.nextSibling.nextSibling)">
+<input type="button" value="最后一个" onclick="change(curTarget.parentNode.lastChild.previousSibling)">
+<script>
+    var curTarget = document.getElementById('ajax');
+    var change = function (target) {
+        alert(target.innerHTML);
+    }
+</script>
+</body>
+</html>

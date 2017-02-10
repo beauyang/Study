@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //定义字符串s的值
+        var s = "absf--abc@d.comcdefg";
+        //从s中匹配正则表达式
+        a = s.search(/[a-z]+@d.[a-zA-Z]{2}m/);
+        //定义字符串变量str
+        var str = "1dfd2dfs3df5";
+
+        var b = str.match(/\d/g);
+
+        alert(a + "\n" + b);
+
+        if(navigator.cookieEnabled){
+            alert('浏览器允许使用cookies');
+        }else {
+            alert('浏览器不允许使用cookies');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

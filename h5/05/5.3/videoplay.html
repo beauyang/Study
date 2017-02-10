@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        video{
+            width: 400px;
+            height: 380px;
+        }
+    </style>
+</head>
+<body>
+    <h2>视频播放</h2>
+    <video id="mv" src="../media/S7E%20(10).mp4" controls loop>
+        您的浏览器不支持video元素
+    </video><br>
+    <input id="btn" type="button" value="播放" /><span id="details"></span>秒
+    <script type="text/javascript">
+        var mv = document.getElementById('mv');
+        var btn = document.getElementById('btn');
+        var details = document.getElementById('details');
+        mv.ontimeupdate =function () {
+            details.innerHTML = mv.currentTime + "/" + mv.duration;
+        };
+        btn.onclick =function () {
+            if (mv.paused){
+                mv.play();
+                btn.value = "暂停";
+            }else {
+                mv.pause();
+                btn.value = "播放";
+            }
+        }
+    </script>
+</body>
+</html>

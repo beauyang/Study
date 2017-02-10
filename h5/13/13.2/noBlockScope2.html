@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var scope = "全局变量";
+        function test() {
+            // 全局变量被局部变量覆盖
+            // 而此时scope局部变量尚未赋值，故此出undefined
+            document.writeln(scope + "<br/>");
+            var scope = "局部变量";
+            document.writeln(scope + "<br/>");
+        }
+        test();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

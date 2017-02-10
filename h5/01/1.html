@@ -1,0 +1,78 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+</head>
+<body>
+	<video width="320" height="320" controls="" style="background: green">
+		<source src="movice.mp4" type="video/mp4">
+		<source src="music.mp4" type="video/mp4">
+		浏览器不支持html5 video 标签	
+	</video>
+	<img id="img1" alt="The Stream" src="../../media/image/11.jpg" width="200px" height="150px">
+	<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+		您的浏览器不支持 HTML5 canvas 标签。
+	</canvas>
+	<canvas id="myCanvas1" width="400" height="200" style="border: 1px solid #000000;">
+		
+	</canvas>
+</body>
+	<script type="text/javascript">
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		//ctx.fillStyle="#FF0000";
+		//ctx.fillRect(10,10,150,75);
+		//画线
+		ctx.moveTo(0,0);//起点坐标
+		ctx.lineTo(200,100);//终点坐标
+		//画线
+		ctx.moveTo(200,0);
+		ctx.lineTo(0,100);
+		ctx.stroke(); //开始画
+		//画圆
+		ctx.beginPath();
+		ctx.arc(100,50,40,0,2*Math.PI);//参数(x,y,r,start,stop)x,y确定圆心位置，r是半径，start起始，stop结束
+		ctx.stroke();
+		//写字
+		ctx.font="30px Sorce Code Pro"; //定义字体
+		ctx.fillText("Hello World",10,50);//文本，位置 实心字体
+		ctx.strokeText("Hello World",10,80);//空心字体
+		//Canvas 渐变
+		//渐变可以填充在矩形, 圆形, 线条, 文本等等, 各种形状可以自己定义不同的颜色。
+		//createLinearGradient(x,y,x1,y1) - 创建线条渐变
+		//createRadialGradient(x,y,r,x1,y1,r1) - 创建一个径向圆渐变
+		//当我们使用渐变对象，必须使用两种或两种以上的停止颜色。
+		//addColorStop()方法指定颜色停止，参数使用坐标来描述，可以是0至1.
+		//使用渐变，设置fillStyle或strokeStyle的值为 渐变，然后绘制形状，如矩形，文本，或一条线。
+		//使用 createLinearGradient():
+		//1.创建一个渐变的矩形
+		// Create gradient
+		var grd=ctx.createLinearGradient(0,0,200,0);
+		grd.addColorStop(0,"red");
+		grd.addColorStop(1,"yellow");
+		// Fill with gradient
+		ctx.fillStyle=grd;
+		ctx.fillRect(10,10,150,80);
+		//2.创建一个渐变的圆形
+		var grd1 = ctx.createRadialGradient(75,50,5,90,60,100);
+		grd1.addColorStop(0,"red");
+		grd1.addColorStop(1,"yellow");
+		//fill with graddient
+		ctx.fillStyle = grd1;
+		ctx.fillRect(10,10,150,80);
+		
+	</script>
+	<script type="text/javascript">
+		var myCanvas1 = document.getElementById("myCanvas1");
+		var ctx1 = myCanvas1.getContext("2d");
+		//添加图片到画板
+		//把一幅图像放置到画布上, 使用以下方法:
+		//drawImage(image,x,y)
+		var img = document.getElementById("img1");
+		img.load = function(){
+			ctx1.drawImage(img,10,10);
+		}
+	</script>
+</html>

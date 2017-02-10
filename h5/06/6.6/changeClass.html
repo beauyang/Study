@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立体效果</title>
+    <script type="text/javascript">
+        function change() {
+            document.getElementById('up').className = 'solid';
+        }
+    </script>
+    <style type="text/css">
+        /*对所有class属性值为solid的元素起作用的css定义*/
+        .solid {
+            width: 160px;
+            text-align: center;
+            border-right: #222222 3px solid;
+            border-top: #dddddd 3px solid;
+            border-left: #dddddd 3px solid;
+            border-bottom: #222222 3px solid;
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" onclick="change()" value="增加立体效果"/>
+    <div id="up">有立体效果的图层</div>
+</body>
+</html>

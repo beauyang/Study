@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态添加一个表格</title>
+</head>
+<body>
+<div id="tt">
+
+</div>
+<script>
+    var tt = document.getElementById('tt');
+    var table = document.createElement('table');
+    table.border = 1;
+    var caption = table.createCaption();
+    caption.innerHTML = 'Table of test';
+    for(var i = 0; i < 10; i++){
+        var tr = table.insertRow(i);
+        for(var j = 0; j < 7; j++){
+            var td = tr.insertCell(j);
+            td.innerHTML = 'cell ' + i + j;
+        }
+    }
+    //将表格添加到单元格
+    tt.appendChild(table);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加删除</title>
+</head>
+<body>
+<div id="tt">
+    <input id="add" type="button" value="增加" disabled onclick="add()"/>
+    <input id="del" type="button" value="删除"  onclick="del()"/>
+    <div id="target" style="width: 240px; height: 50px; border: 1px solid black">被控制的目标元素</div>
+</div>
+<script>
+    var tt = document.getElementById('tt');
+    var target = document.getElementById('target');
+    var add =function () {
+        tt.appendChild(target);
+        document.getElementById('add').disabled = 'disabled';
+        document.getElementById('del').disabled = '';
+    }
+    var del = function () {
+        tt.removeChild(target);
+        document.getElementById('del').disabled = 'disabled';
+        document.getElementById('add').disabled = '';
+    }
+</script>
+</body>
+</html>

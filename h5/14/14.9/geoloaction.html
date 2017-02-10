@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>geolocation</title>
+</head>
+<body>
+<script>
+    var geoHandler = function (position) {
+        var geoMeg = '用户所在位置信息是:<br/>';
+        geoMeg += 'timestamp属性是: ' + position.timestamp + '<br/>';
+
+        //获取Coordinates对象，该对象包含了详细的地理位置信息
+        var coords = position.coords;
+        //遍历Coordinates对象所有的属性
+        for (var prop in coords){
+            geoMeg += prop + '-->' + coords[prop] + '<br/>';
+        }
+        //输出位置信息
+        document.writeln(geoMeg);
+    }
+    var errorhandler = function (error) {
+        //为不同错误代码定义错误提示
+        var errMeg = {
+            1 : '用户拒绝位置服务',
+            2 : '无法获取地址位置信息',
+            3 : '获取地理位置信息超时'
+        };
+        //弹出错误信息
+        alert(errMeg[error.code]);
+    };
+    //获取地理位置信息
+    navigator.geolocation.getCurrentPosition(geoHandler,errorhandler , {
+        enableHighAccuracy : true,
+        maximumAge : 1000
+    });
+</script>
+</body>
+</html>

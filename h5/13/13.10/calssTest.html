@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classTest</title>
+</head>
+<body>
+<script>
+    function Person(name , age) {
+        this.name = name;
+        this.age = age;
+        this.info = function () {
+            document.writeln('姓名：' + this.name)
+            document.writeln('年纪：' + this.age)
+        }
+    }
+    var p1 = new Person('young' , 10);
+    p1.info();
+    var p2 = new Person('bo' , 19);
+    p2.info();
+    document.writeln("<hr/>")
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extendsArray</title>
+</head>
+<body>
+<script>
+    Array.prototype.indexof = function (obj) {
+        var result = -1;
+
+        for (var i = 0; i < this.length; i++){
+            if (this[i] == obj){
+                result = i;
+                break;
+            }
+        }
+        return result;
+    }
+    //test
+    var arr = [12, 13, 5, -2];
+    alert(arr.indexof(-22));
+</script>
+</body>
+</html>

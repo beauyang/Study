@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototypeTest</title>
+</head>
+<body>
+<script>
+    function Person(name , age) {
+        this.name = name;
+        this.age = age;
+        this.info = function () {
+            document.writeln('姓名:' + this.name + '<br/>');
+            document.writeln('age:' + this.age + '<br/>');
+        }
+    }
+    var p = new Person('young' , 19);
+    p.info();
+    document.writeln('<hr/>');
+    //
+
+    Person.prototype.walk  = function () {
+        document.writeln('新增walk方法');
+    };
+    p.info();
+    p.walk();
+</script>
+</body>
+</html>

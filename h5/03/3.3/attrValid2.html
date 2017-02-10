@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attrValid2</title>
+</head>
+<body>
+    <form action="" method="post">
+        图书名称:<input type="text" name="name" required /><br/>
+        ISBN:<input type="text" name="ISBN" pattern="\d{3}-\d-\d{3}-\d{5}" required><br/>
+        图书价格:<input name="price" type="number" min="20" max="150" step="5"/><br/>
+        <input type="submit" value="提交" onclick="check();"/>
+    </form>
+<script type="text/javascript">
+    var check = function () {
+        if (!document.getElementById('name').checkValidity()){
+            document.getElementById('name').setCustomValidity("图书名必须填写");
+        }
+        if (!document.getElementById('ISBN').checkValidity()){
+            document.getElementById('ISBN').setCustomValidity("ISBN编号必须符合/n'xxx-x-xxx-xxxxx'");
+        }
+        if (!document.getElementById('price').checkValidity()){
+            document.getElementById('price').setCustomValidity("格式不符合");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>curveTo</title>
+</head>
+<body>
+    <h2>curveTo示意</h2>
+<canvas id="mc" width="420" height="280" style="border: 1px solid black;"></canvas>
+<script type="text/javascript">
+    /**
+     * 该方法负责绘制花朵。
+     * n 该参数控制花朵的花瓣数
+     * dx、dy：控制花瓣的位置
+     * size:控制花朵的大小
+     * length：控制花瓣的长度
+     *
+     */
+    function createFlower(context , n , dx , dy ,size ,length) {
+        context.beginPath();
+        context.moveTo(dx , dy + size);
+        var dig = 2 * Math.PI / n;
+        for(var i = 1;i < n + 1;i++){
+            //计算控制点的坐标
+            var ctrlx = Math.sin((i - 0.5) * dig) * length + dx;
+            var ctrly = Math.cos((i - 0.5) * dig) * length + dy;
+            //计算结束点坐标
+            var x = Math.sin(i * dig) * size + dx;
+            var y = Math.cos(i * dig) * size + dy;
+            //绘制二次曲线
+            context.quadraticCurveTo(ctrlx , ctrly , x , y);
+        }
+        //
+
+    }
+    var canvas = document.getElementById('mc');
+    var ctx = canvas.getContext('2d');
+    createFlower(ctx , 5 , 70 , 100 , 30 , 80);
+    ctx.fillStyle = "#f00";
+    ctx.fill();
+
+    createFlower(ctx , 6 , 170 , 100 , 30 , 80);
+    ctx.fillStyle = "#f00";
+    ctx.fill();
+</script>
+</body>
+</html>

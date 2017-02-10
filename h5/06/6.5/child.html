@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>child</title>
+    <style type="text/css">
+        /*定义对其父元素的第1个子节点的li元素起作用的css样式*/
+        li:first-child{
+            border: 1px solid black;
+        }
+        li:last-child{
+            background-color: #aaaaaa;
+        }
+        /*定义对其赋父元素的第二个子节点的li元素起作用的 css样式*/
+        li:nth-child(2){
+            background-color: antiquewhite;
+        }
+        /*定义对其赋父元素的倒数第二个子节点的li元素起作用的 css样式*/
+        li:nth-last-child(2){
+            background-color: #00ff00;
+        }
+        /*定义对其赋父元素的唯一的子节点的span元素起作用的 css样式*/
+        span:only-child{
+            font-size: 30px;
+            font-family: "隶书";
+        }
+    </style>
+</head>
+<body>
+<ol>
+    <li>this is a test</li>
+    <li>this is a test</li>
+    <li>this is a test</li>
+    <li>this is a test</li>
+    <li>this is a test</li>
+</ol>
+<ul>
+    <li id="java">this is a test</li>
+    <li id="javaee">this is a test</li>
+    <li id="ajax">this is a test</li>
+    <li id="xml">this is a test</li>
+    <li id="ejb">this is a test</li>
+    <li><span id="android">this is a test</span></li>
+</ul>
+<span>this is a test </span>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加编号</title>
+    <style type="text/css">
+        div > div {
+            counter-increment: mycounter;
+        }
+        /*在div的子div元素的前端插入mycounter 计数器和一个点*/
+        div > div :before{
+            content: counter(mycounter,decimal) '.';
+            font-size: 20pt;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>我是一个演员</div>
+        <div>我是一个程序猿</div>
+        <div>我是一个攻城狮</div>
+    </div>
+</body>
+</html>

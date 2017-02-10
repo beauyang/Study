@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>noOverload</title>
+</head>
+<body>
+<script>
+    /**
+     * javascript中没有所谓的函数“重载”，
+     */
+    function test() {
+        document.write('this is first function');
+    }
+    function test(name) {
+        document.write('this is second function');
+    }
+    test();
+</script>
+</body>
+</html>

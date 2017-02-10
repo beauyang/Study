@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localFunction</title>
+</head>
+<body>
+    <script>
+        function outer() {
+            function inner1() {
+                document.writeln('inner1 function<br/>');
+            }
+            function inner2() {
+                document.writeln('inner2 function<br/>');
+            }
+            document.writeln('开始测试局部函数<br/>')
+            inner1();
+            inner2();
+            document.writeln('======end======<br/>');
+        }
+        document.writeln('开始测试全局函数<br/>');
+        outer();
+        //inner2();
+        document.writeln('全局函数end==========')
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>removeTable</title>
+</head>
+<body>
+<input id="delrow" type="button" value="删除表格最后一行" onclick="delrow();"/><br/>
+<input id="delcell" type="button" value="删除表格最后一行的最后一格" onclick="delcell();"/><br/>
+<table id="test" border="1" style="width: 400px;">
+    <caption>疯狂Java体系</caption>
+    <tr>
+        <td>Java</td>
+        <td>ejb</td>
+    </tr>
+    <tr>
+        <td>xml</td>
+        <td>ssm</td>
+    </tr>
+    <tr>
+        <td>json</td>
+        <td>node js</td>
+    </tr>
+</table>
+<script>
+    var table = document.getElementById('test');
+    //删除行的函数
+    var delrow = function () {
+        //
+        if (table.rows.length > 0){
+            //删除最后一行
+            table.deleteRow(table.rows.length - 1);
+        }
+    }
+    var delcell = function () {
+        //表格所有的行
+        var rowList = table.rows;
+        //获得最后一行
+        var lastRow = rowList.item(rowList.length - 1);
+        if (lastRow.cells.length > 0){
+            //删除表格的最后一格
+            lastRow.deleteCell(lastRow.cells.length - 1);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>newObject</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    var p1 = new Person();
+    var p2 = new Person('young' , 29);
+    //输出p1的属性
+    document.writeln('p1的属性：' +　p1.name + p1.name + '<br/>');
+    //输出p2的属性
+    document.writeln('p2的属性：' + p2.name + p2.age + '<br/>');
+</script>
+</body>
+</html>

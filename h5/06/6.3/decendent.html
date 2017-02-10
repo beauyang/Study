@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包含选择器</title>
+    <style type="text/css">
+        /*对所有div元素起作用的css样式*/
+        div {
+            width: 350px;
+            height: 60px;
+            background-color: #dddddd;
+            margin: 5px;
+        }
+        /*对处于div且class属性为xx的元素起作用*/
+        div.xx {
+            width: 200px;
+            height: 40px;
+            border: 2px dotted black;
+            background-color: #888888;
+        }
+    </style>
+</head>
+<body>
+<div>没有任何属性的div</div>
+<div><div class="xx">包含在div中，且class为xx的div</div></div>
+<p class="xx">class为xx的p但不包含在div中</p>
+</body>
+</html>

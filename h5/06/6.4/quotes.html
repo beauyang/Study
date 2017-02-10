@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加符号</title>
+    <style type="text/css">
+        /*定义open-quote为 << close-quote 为>> */
+        div > div{
+            quotes: "<<" ">>";
+        }
+        div > div:before{
+            content: open-quote;
+        }
+        div > div:after{
+            content: close-quote;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>我是一个演员</div>
+        <div>我是一个程序猿</div>
+        <div>我是一个攻城狮</div>
+    </div>
+</body>
+</html>

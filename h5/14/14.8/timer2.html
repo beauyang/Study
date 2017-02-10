@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>timer2</title>
+</head>
+<body>
+<span id="tm"></span>
+<script>
+    var timer;
+    var date = new Date().getTime();
+    var setTime = function () {
+        document.getElementById('tm').innerHTML = new Date().toLocaleString();
+        if (new Date().getTime() - date <= 60 * 1000){
+            //指定延迟1000ms后执行setTime函数
+            window.setTimeout("setTime();" , 1000);
+        }
+    }
+    setTime();
+</script>
+</body>
+</html>

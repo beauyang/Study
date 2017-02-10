@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>content</title>
+    <style type="text/css">
+        div > div:before{
+            content: 'Test';
+            color: blue;
+            font-weight: bold;
+            background-color: gray;
+        }
+        div > div.no:after{
+            content: url("../../../media/image/11.jpg");
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="no">我是一个演员</div>
+        <div class="no">我是一个程序猿</div>
+        <div>我是一个工程师</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="a">按钮</button>
+<script>
+    var clickHandler = function (evt) {
+        //DOM模型，访问事件源于target属性
+        if (evt){
+            alert(evt.target.innerHTML);
+        }else {
+            // IE
+            alert(window.event.srcElement.innerHTML);
+        }
+    };
+    //为按钮a绑定事件处理器
+    document.getElementById('a').onclick = clickHandler;
+</script>
+</body>
+</html>

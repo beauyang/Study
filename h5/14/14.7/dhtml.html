@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dhtml</title>
+</head>
+<body id="bd">
+<a href="http://www.baidu.com"/><br/>
+<img id="lee" src="http://www.crazyit.org/logo.jpg" alt="this is test"/><br/>
+<form>
+    <input type="text" name="user" value="文本框"/><br/>
+    <input id="bn" type="button"  value="按钮"/><br/>
+</form>
+<script>
+    /*访问body元素*/
+    alert(document.body.id);
+    /*访问你一个超链接*/
+    alert(document.links[0].href);
+    /*访问id或name为lee的图片*/
+    alert(document.images['lee'].alt);
+    /*访问页面的第一个表单*/
+    form = document.forms[0];
+    alert(form.innerHTML);
+    /*访问表单里的第一个元素*/
+    alert(form.elements[0].value);
+    window.status = '自定义状态栏文字';
+</script>
+</body>
+</html>

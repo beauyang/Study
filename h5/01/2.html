@@ -1,0 +1,83 @@
+<!DOCTYPE >
+<html>
+<head>
+	<title>SVG</title>
+	<style type="text/css">
+		.div1 {
+			width:350px;
+			height:300px;
+			padding:10px;
+			border:1px solid #aaaaaa;
+		}
+</style>
+</head>
+<body>
+	<!-- 验证svg -->
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+	<polygon points="100,10 40,180 190,60 10,60 160,180"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;"/>
+	</svg>
+	<!-- 验证拖拽效果 -->
+	<div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+	</div>
+	<img id="drg1" src="../../media/image/11.jpg" draggable="true" ondragstart="drag(event)">
+	<div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<!-- 验证datalist -->
+	Test dataList:<input type="url" placeholder="chrome 不支持" name="Test datalist" list="url_list"/><br/>
+	<datalist id="url_list">
+		<option label="Google" value="www.google.com"></option>
+		<option label="Baidu" value="www.baidu.com"></option>
+		<option label="Bing" value="www.bing.cn"></option>
+	</datalist>
+	<form>
+		<!-- 测试required，该字段必须填写 -->
+		<!-- 测试placeholder -->
+		<!-- 测试pattern -->
+		Emaile:<input type="input" name="" required="required" placeholder="yangbo3306@gmail.com" pattern="[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?"/><br/>
+		Select images:<input type="fill" name="image" multiple="multiple"/>
+		<input type="submit" name="提交"/><br>
+		
+	</form>
+	</div>
+</body>
+	<!-- 验证拖拽需要的js -->
+	<script type="text/javascript">
+		function allowDrop(ev){
+			ev.preventDefault();
+		}
+		function drag(ev){
+			ev.dataTransfer.setData("Text",ev.target.id);
+		}
+		function drop(ev){
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("Text");
+			ev.target.appendChild(document.getElementById(data));
+		}
+	</script>
+	<!-- 验证localStorage -->
+	<script type="text/javascript">
+		localStorage.lastName = "Beau";
+		document.write(localStorage.lastName); //浏览器f12 选择application 可以查看键值对
+		// 可以实现简单的页面访问统计
+		// 当页面关闭时，数据仍存储在浏览器中
+		if(localStorage.pageCount){
+			localStorage.pageCount = Number(localStorage.pageCount)+1;
+		}else{
+			localStorage.pageCount = 1;
+		}
+		document.write("Visits "+ Number(localStorage.pageCount) + " time(s).");
+	</script>
+	<!-- 验证sessionStorage -->
+	<script type="text/javascript">
+		sessionStorage.lastName = "Bo";
+		// 使用sessionStorage进行页面访问进行统计
+		// 当页面关闭时数据置空
+		document.write(sessionStorage.lastName);
+		if (sessionStorage.pageCount){
+		  	sessionStorage.pageCount = Number(sessionStorage.pageCount) +1;
+		  }else{
+		  	sessionStorage.pageCount = 1;
+		  }
+		document.write("Visits "+sessionStorage.pageCount+" time(s) this session.");
+	</script>
+</html>

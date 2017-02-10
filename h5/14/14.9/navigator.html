@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navigator</title>
+</head>
+<body>
+<script>
+    alert(window.navigator);
+    var info = 'The info of this brower\n';
+    for (var item in window.navigator){
+        info += item + ": " + window.navigator[item]+'\n';
+    }
+    alert(info);
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<title>拖放行为</title>
+</head>
+<body>
+	<div id="source" draggable="true" style="width: 80px;height: 60px;border: 1px solid black">拖动我</div>
+	<script type="text/javascript">
+		var source = document.getElementById('source');
+		var dest = document.getElementById('text');
+		source.ondragstart = function (evt) {
+			var dt = evt.dataTransfer;
+			// 
+			dt.effectAllowed = 'link';
+			dt.setData("text/html","https://www.zhihu.com");
+		}
+		//允许拖动
+		document.ondragover = function(evt){
+			return false;
+		}
+	</script>
+</body>
+</html>

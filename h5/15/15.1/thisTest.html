@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input id="bt1" type="button" value="按钮1" onclick="alert(this.value);"/>
+<input id="bt2" type="button" value="按钮2"/>
+<input id="bt3" type="button" value="按钮3"/>
+<script>
+    var test = function () {
+
+        alert(this.value);
+    };
+    //将test函数设置为按钮bt2的事件处理器
+    document.getElementById('bt2').onclick = test;
+    // 使用json 格式 定义一个对象
+    var p = {
+        value : 'p对象',
+        info : function () {
+            alert(this.value);
+        }
+    };
+    //将对象p的info方法设置为按钮bn3的事件处理器
+    document.getElementById('bt3').onclick = p.info;
+    //直接调用对象p的info()
+    p.info();
+</script>
+</body>
+</html>

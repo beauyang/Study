@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子选择器</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 40px;
+            background-color: #dddddd;
+            margin: 5px;
+        }
+        /*处于div中且class属性为xx中*/
+        div > .xx{
+            width: 250px;
+            height: 35px;
+            border: 2px dotted black;
+        }
+    </style>
+</head>
+<body>
+<div>没有任何属性的div</div>
+<div><p class="xx">class属性为xx且包含在div中</p></div>
+<div><selection><p class="xx">属性为xx且处于div内部</p></selection></div>
+</body>
+</html>

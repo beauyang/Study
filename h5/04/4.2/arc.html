@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ARC</title>
+</head>
+<body>
+<canvas id="mc" width="400" height="380" style="border: 1px solid black"></canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById('mc');
+    var ctx = canvas.getContext('2d');
+    for(var i = 0;i < 10;i++){
+        // 开始路径
+        ctx.beginPath();
+        //画圆弧
+        ctx.arc(i*25,i*25,(i+1)*8,0,Math.PI*2,true);
+        //关闭路径
+        ctx.closePath();
+        //填充颜色
+        ctx.fillStyle = 'rgba(255,0,255,'+(10-i)*0.1+')';
+        //
+        ctx.fill();
+    }
+</script>
+</body>
+</html>

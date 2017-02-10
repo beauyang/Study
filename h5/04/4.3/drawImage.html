@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dramImage</title>
+</head>
+<body>
+<canvas id="mc" height="280px" width="400px" style="border: 1px solid black;"></canvas>
+    <script type="text/javascript">
+        var canvas = document.getElementById('mc');
+        var ctx = canvas.getContext('2d');
+        var image = new Image();
+        image.src = "11.jpg";
+        // 当图片加载完成后加载此函数
+        image.onload = function () {
+            alert('hello');
+            //保持原大小绘制图片
+            ctx.drawImage(image , 20 , 10);
+            //绘制图片进行缩放
+            ctx.drawImage(image , 180 , 10 , 76 , 110);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>No Title</title>
+</head>
+<body>
+    <h2>叠加风格</h2>
+选择叠加风格：<select style="width: 160px" onchange="draw(this.value);";>
+        <option value="source-over">source-over</option>
+        <option value="source-in">source-in</option>
+        <option value="source-out">source-out</option>
+        <option value="source-atop">source-atop</option>
+        <option value="destination-over">destination-over</option>
+        <option value="destination-in">destination-in</option>
+        <option value="destination-out">destination-out</option>
+        <option value="destination-atop">destination-atop</option>
+        <option value="lighter">lighter</option>
+        <option value="xor">xor</option>
+        <option value="copy">copy</option>
+    </select>
+    <br>
+<canvas id="mc" height="200" width="400" style="border: 1px solid black;"></canvas>
+<script type="text/javascript">
+    var canvas =document.getElementById('mc');
+    var ctx = canvas.getContext('2d');
+
+    var draw = function (value) {
+        ctx.save();
+        ctx.clearRect(0, 0, 400, 200);
+        ctx.fillStyle = '#f00';
+        ctx.fillRect(30, 20, 160, 100);
+        //设置图形叠加风格
+        ctx.globalCompositeOperation = value;
+        ctx.fillStyle = '#0f0';
+        //填充一个矩形
+        ctx.fillRect(120,60,160,100);
+        ctx.restore();
+    }
+</script>
+</body>
+</html>

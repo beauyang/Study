@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>functionCall</title>
+</head>
+<body>
+<script>
+    var each = function (array , fn) {
+        for(var index in array){
+            fn.call(null , index , array[index]);
+        }
+    };
+    //调用each函数
+    each([4, 20, 3],function (index , ele) {
+        document.write('第' + index + '个元素是: '+ele + '<br/>');
+    })
+</script>
+</body>
+</html>

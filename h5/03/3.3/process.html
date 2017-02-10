@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reader process</title>
+</head>
+<body>
+    <!--FileReader在读取数据是可以多次触发onprocess事件，通过此事件可以监控文件的读取进度-->
+    请选择文件:<input id="file1" type="file"/><br/>
+    进度:<progress id="pro" value="0"></progress>
+    <div id="result"></div>
+    <input type="button" value="读取二进制文件" onclick="readBinary()"/>
+    <script type="text/javascript">
+        var reader = null;
+        if (FileReader){
+            reader = new FileReader;
+        }else {
+            alert("浏览器不支持fileReader");
+        }
+        var readBinary = function () {
+            reader.readAsBinaryString(document.getElementById('file1').files[0]);
+            var process = document.getElementById('pro');
+            process.size = document.getElementById('file1').files[0].size;
+            //在reader读取数据时不不断触发此事件
+            reader.onprogress = function (evt) {
+                process.value = evt.loaded;
+            }
+        }
+    </script>
+</body>
+</html>

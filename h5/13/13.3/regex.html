@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regex</title>
+    <script>
+        alert(/^<a href=(\'|\")[a-zA-Z0-9\/:\.]*(\'|\")>.*<\/a>$/.test("<a href='http://www.baidu.com'>百度</a>"));
+        function trim(s) {
+            return s.replace(/(^\s*)|(\s*$)/g,"");
+        }
+        alert(trim(' Hello,JavaScript  '));
+        alert("浏览器版本" + navigator.appVersion + "Name:"+navigator.appName + "codeName:" + navigator.appCodeName);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

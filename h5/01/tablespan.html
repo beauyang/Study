@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>tableSpan</title>
+	<!-- 练习table rowspan 与colspan -->
+</head>
+<body>
+	<table style="width: 240px" border="1">
+		<tr>
+			<td rowspan="2">cell</td>
+			<td>cell</td>
+			<td>cell</td>
+		</tr>
+		<tr>
+			<td colspan="2">cell</td>
+			<!-- <td>cell</td>
+			<td>cell</td> -->
+		</tr>
+		<tr>
+			<td colspan="2">cell</td>
+			<td rowspan="2">cell</td>
+			<!-- <td>cell</td> -->
+		</tr>
+		<tr>
+			<td>cell</td>
+			<td>cell</td>
+			<!-- <td>cell</td> -->
+		</tr>
+	</table>
+	<!--  -->
+	<table style="width: 300px" border="1">
+		<caption><b>HTML5 Study</b></caption>
+		<!-- 定义所有列背景颜色 -->
+		<colgroup style="background-color: yellow">
+			<!-- 设置第一列的宽度 -->
+			<col style="width: 100px" />
+			<!-- 设置第二列的宽度 -->
+			<col style="width: 200px" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>author</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="2" style="text-align: right; ">共计2本书</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>This is one book</td>
+				<td>I'm author</td>
+			</tr>
+			<tr>
+				<td>This is anthor book</td>
+				<td>I'm author</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

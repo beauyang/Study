@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Text</title>
+</head>
+<body>
+    <h2> 绘制文字</h2>
+    <canvas id="mc" width="600" height="280" style="border: 1px solid black;"></canvas>
+    <script type="text/javascript">
+        // 获取canvasy元素对应的DOM对象
+        var canvas = document.getElementById('mc');
+        // 获取CanvasRenderingContext2D
+        var ctx = canvas.getContext('2d');
+        //
+        ctx.fillStyle = '#f44';
+        //设置字体
+        ctx.font = 'solid 50px Source Code Pro';
+        ctx.textBaseline = 'top';
+        //填充字体
+        ctx.fillText('JAVA从入门到放弃',0,0);
+        ctx.strokeStyle = '#f0f';
+        ctx.font = 'bold 45px 宋体';
+        //绘制字符串的边框
+        ctx.strokeText('轻量级JAVA EE',0,50);
+    </script>
+</body>
+</html>

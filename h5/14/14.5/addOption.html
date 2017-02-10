@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加列表项</title>
+</head>
+<body>
+<div id="test">
+</div>
+<script>
+    var sel = document.createElement('select');
+    var test = document.getElementById('test');
+    for(var i = 0; i < 10; i++){
+        var op = document.createElement('option');
+        op.innerHTML = '第' + i + '个列表项';
+        //将新的选项添加到列表项的最后
+        sel.add(op, null);
+    }
+    sel.size = 7;
+    test.appendChild(sel);
+</script>
+</body>
+</html>

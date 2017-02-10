@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shadow</title>
+</head>
+<body>
+<canvas id="mc" width="600" height="280" style="border: 1px solid black"></canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById('mc');
+    var ctx = canvas.getContext('2d');
+    //设置模糊阴影度
+    ctx.shadowBlur = 5.6;
+    // 设置阴影颜色
+    ctx.shadowColor = '#222';
+    // 设置阴影在x ,y方向的偏移
+    ctx.shadowOffsetX = 10;
+    ctx.shadowOffsetY = -6;
+    //字体颜色
+    ctx.fillStyle = '#00f';
+    ctx.font = 'italic 50px 隶书'
+    ctx.textBaseline = 'top';
+    //填充字符串
+    ctx.fillText('java从入门到放弃',0,0);
+    //
+    ctx.strokeStyle = '#f0f';
+    ctx.font = 'bold 45px 宋体';
+</script>
+</body>
+</html>

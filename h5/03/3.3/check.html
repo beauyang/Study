@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check</title>
+</head>
+<body>
+    <form action="" method="post">
+        生日:<input id="date" name="date" type="date"/><br>
+        邮件:<input id="email" name="email" type="email"><br>
+        <input type="submit" value="提交" onclick="return check()">
+    </form>
+<script type="text/javascript">
+    var check = function () {
+        return commonCheck("date","生日","字段必须是有效") && commonCheck("email","邮件地址","字段必须符合有效地址");
+    }
+    var commonCheck =function (field,fieldName,tip) {
+        var targetEle = document.getElementById('field');
+        if (targetEle.value.trim() == ""){
+            alert(fieldName + "必须填写");
+            return false;
+        }else if (!targetEle.checkValidity()){
+            alert(fieldName + tip)
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

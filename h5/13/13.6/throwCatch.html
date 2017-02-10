@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>throwCatch</title>
+    <script>
+        try {
+            for(var i = 0 ; i < 10 ; i++){
+                document.writeln(i + '<br/>')
+                if (i == 4){
+                    throw new Error('   用户指定异常' + '<br/>');
+                }
+            }
+        }catch (e){
+            document.writeln("catch到的异常信息:" + e.message + '<br/>');
+        }finally {
+            document.writeln("finally 处理");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

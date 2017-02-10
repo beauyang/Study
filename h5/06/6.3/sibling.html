@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类选择器</title>
+    <style type="text/css">
+        /*匹配id为da的元素后面，class属性为long的兄弟节点*/
+        #da ~ .long{
+            background-color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>dasdadadad</div>
+    <div class="long">This is a test</div>
+    <div id="da">dsadsadad</div>
+    <p class="long">this is a test</p>
+    <div class="long">JavaScript</div>
+</div>
+</body>
+</html>

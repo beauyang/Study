@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scriptTrigger</title>
+</head>
+<body>
+<h2>脚本触发事件</h2>
+<form id="ff" method="post" name="register" action="http://www.baidu.com">
+    <input type="text" name="user"/><br/>
+    <input type="text" name="password"/><br/>
+    <input type="button" id="s" value="提交">
+</form>
+<script>
+    document.getElementById('s').onclick = function () {
+        alert('sss');
+        document.getElementById('ff').submit;
+    }
+</script>
+</body>
+</html>

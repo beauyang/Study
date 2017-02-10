@@ -1,0 +1,35 @@
+<!DOCTYPE >
+<html>
+<head>
+	<title>contentEditable</title>
+</head>
+<body>
+	<!-- 表明该元素是可编辑的 -->
+	<!-- 该属性可以继承，即如果父类标签设置为true，则子类标签同样可编辑 -->
+	<div contenteditable="true" style="width: 500px; border: 1px; solid:black">
+		<table style="width: 500px; border-collapse: collapse;" border="1">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>author</th>
+			</tr>
+			</thead>
+		<tfoot>
+			<tr>
+				<td colspan="2" style="text-align: right; ">共计2本书</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>This is one book</td>
+				<td>I'm author</td>
+			</tr>
+			<tr>
+				<td>This is anthor book</td>
+				<td>I'm author</td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+</body>
+</html>

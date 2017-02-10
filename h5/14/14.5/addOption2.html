@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加列表项</title>
+</head>
+<body>
+<div id="test">
+</div>
+<script>
+    var sel = document.createElement('select');
+    var test = document.getElementById('test');
+    for(var i = 0; i < 10; i++){
+        // for IE8以下
+        var op = new option('第' + i + '项' , i);
+        sel.options[i] = op;
+    }
+    sel.size = 7;
+    test.appendChild(sel);
+</script>
+</body>
+</html>

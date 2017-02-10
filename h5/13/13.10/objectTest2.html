@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>objectTest2</title>
+</head>
+<body>
+<script>
+    function Person(name , age) {
+        //
+        this.name = name;
+        this.age = age;
+        this.info = function () {
+            alert('info method');
+        }
+    }
+    var p = new Person('young' , 19);
+    for(pname in p){
+        document.write('Person的属性：'+ pname + " " + p[pname] + "<br/>");
+    }
+</script>
+</body>
+</html>

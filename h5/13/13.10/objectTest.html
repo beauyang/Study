@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>objectTest</title>
+</head>
+<body>
+<script>
+    function Person(name) {
+        this.name = name;
+    }
+    // 使用new 关键字，简单创建Person类的实例
+    var p = new Person('Beau young');
+    if (p instanceof Person){
+        document.write('p是Person的实例<br/>');
+    }
+    if (p instanceof Object){
+        document.write('p是Object的实例<br/>')
+    }
+</script>
+</body>
+</html>

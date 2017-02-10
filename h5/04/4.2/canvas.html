@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas入门</title>
+</head>
+<body>
+<h2>画布入门</h2>
+<div id="d1">
+    <canvas id="mc" width="300" height="180" style="border: 1px solid black"></canvas>
+</div>
+<script type="text/javascript">
+    // 获取canvas 元素对应的DOM
+    var canvas = document.getElementById('mc');
+    //获取绘图对象
+    var ctx = canvas.getContext('2d');
+    // 设置填充颜色
+    ctx.fillStyle = '#f00';
+    // 绘制矩形
+    ctx.fillRect(40,40,100,61.8)
+</script>
+</body>
+</html>

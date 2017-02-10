@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UI元素的伪类选择器</title>
+    <style type="text/css">
+        td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+        /*为鼠标悬停状态的表格行定义css样式*/
+        tr:hover{
+            background-color: #aaaaaa;
+        }
+        /*为激活状态的input元素定义css样式*/
+        input：active {
+            background-color: blue;
+        }
+        /*为得到焦点的任意元素定义css样式*/
+        :focus{
+            text-decoration: underline;
+        }
+        /*为可用的任意元素定义css样式*/
+        :enabled{
+            font-family: 黑体;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        :disabled{
+            font-family: 隶书;
+            font-size: 18px;
+        }
+        /*为处于勾选状态的任意元素定义css样式*/
+        :checked{
+            outline: red solid 5px;
+
+        }
+        /*为页面打开时处于勾状态的任意元素定义css样式*/
+        :default{
+            outline: #bbbbbb solid 5px;
+        }
+    </style>
+</head>
+<body>
+    <table style="width: 400px;border-collapse: collapse">
+        <tr>
+            <td>this is a test</td>
+        </tr>
+        <tr>
+            <td>this is a test</td>
+        </tr>
+        <tr contenteditable="true">
+            <td>this is a test</td>
+        </tr>
+    </table>
+    <button disabled>不可用的按钮</button>
+    <input type="text" disabled value="不可用的文本">
+    <button>可用的按钮</button>
+    <input type="text" value="可用的文本"/>
+    男:<input type="radio" value="male" name="gender"/>
+    女:<input type="radio"  value="female" name="gender"/>
+    未知:<input type="radio" checked value="unknown" name="gender"/>
+</body>
+</html>

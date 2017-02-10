@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>lable标签</title>
+</head>
+<body>
+	<form action="https://www.zhihu.com" method="get">
+		<label for="username">单文本框:</label>
+		<input type="text" name="username" id="username"/><br/>
+		<label>密码框:<input type="password" name="password" id="password"/></label><br/>
+		<input type="submit" id="ok" value="submit" />
+		<button type="submit"><b>提交</b></button>
+	</form>
+	<br>
+	<form action="https://www.zhihu.com">
+		简单的下拉菜单：<br/>
+		<select id="skills" name="skills">
+			<option value="java">java语言</option>
+			<option value="c">c语言</option>
+			<option value="nodejs">nodejs语言</option>
+		</select><br>
+		允许多选的下拉列表:<br/>
+		<select id="books" name="books" multiple="multiple" size="4">
+			<optgroup label="java系列">
+				<option value="java" label="lala">JAVA讲义</option>
+				<option value="android">android讲义</option>
+				<option value="ee">JavaEE</option>
+			</optgroup>
+		</select>
+		<button type="submit"><b>提交</b></button>
+	</form>
+</body>
+</html>

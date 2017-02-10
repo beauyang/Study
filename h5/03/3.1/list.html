@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>list属性</title>
+</head>
+<body>
+	<form method="get" action="buy">
+		请输入图书：<input type="text" name="name" list="books" autocomplete="off" /><br/> <!-- 设置autocomplete为off 该列就不显示了 -->
+		颜色:<input type="color" name="color"><br/>
+		本地日期，时间选择器:<input type="datetime-local" name="time"><br/>
+		time:<input type="time" name="time"><br/>
+		month:<input type="month" name="month"><br/>
+		week:<input type="week" name="week"><br/>
+		URL:<input type="url" name="url"><br/>
+		email:<input type="email" name="email"><br/>
+		range:<input type="range" name="range" min="0" max="100" step="2"><br/>
+		<input type="submit" value="购买"/>
+	</form>
+	<datalist id="books">
+		<option value="java">java学习笔记</option>
+		<option value="EE">javaEE学习笔记</option>
+		<option value="android">android学习笔记</option>
+	</datalist>
+</body>
+</html>

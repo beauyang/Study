@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UI 元素状态的伪类选择器</title>
+    <style type="text/css">
+        td {
+            border: 1px solid black;
+            padding: 4px;
+        }
+        ::selection{
+            background-color: red;
+            color: white;
+        }
+        /*专为基于Gecko内核浏览器指定的css样式*/
+        ::-moz-selection{
+            background-color: gold;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <table style="width: 400px;border-collapse: collapse">
+        <tr>
+            <td>this is a test</td>
+            <td>109</td>
+        </tr>
+        <tr>
+            <td>this is a test</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>this is a test</td>
+            <td>101</td>
+        </tr>
+    </table>
+    <input type="text" readonly value="只读文本"/>
+    <input type="text"  value="可读写的文本"/>
+</body>
+</html>

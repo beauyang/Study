@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag</title>
+    <script type="text/javascript" src="drag.js"></script>
+</head>
+<body>
+<div style="position: absolute; left: 120px; top: 150px; width: 250px; border: 1px solid black;">
+    <div style="background-color: #416ea5;
+            width: 250px;
+            height: 22px;
+            cursor: move;
+            font-weight: bold;
+            border-bottom: 1px solid black"
+            onmousedown="drag(this.parentNode, event)">
+        可拖动标题
+        <p>可拖动的窗口</p>
+        <p>窗口内容</p>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>timer</title>
+</head>
+<body onload="setTime();">
+<span id="tm"></span>
+<script>
+    var timer;
+    var cur = new Date().getTime();
+    var setTime = function () {
+        //在tm元素中显示当前时间
+        document.getElementById('tm').innerHTML = new Date().toLocaleString();
+        //如果当前时间比起始时间大于60s，则停止定时器的调度
+        if (new Date().getTime() - cur > 60 * 1000){
+            //清除定时器
+            clearInterval(timer);
+        }
+        //每隔一段时间执行setTime
+        timer = window.setInterval('setTime();', 1000);
+    }
+</script>
+</body>
+</html>

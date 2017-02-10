@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arcTo</title>
+</head>
+<body>
+    <canvas id="mc" width="400" height="280" style="border: 1px solid black"></canvas>
+<script type="text/javascript">
+    /**
+     * 该方法负责圆角矩形的绘制
+     * x1，y1，圆角矩形左上角的坐标
+     * width、height：控制圆角矩形的宽，高
+     * radius 控制圆角矩形的四个角的半径
+     */
+    function createRoundRect(context,x1,y1,width,height,radius) {
+        // 移动到水瓶靠左，画图的起点
+        ctx.moveTo(x1 + radius , y1);
+        // 水平方向向右画一条直线
+        ctx.lineTo(x1 + width - radius , y1);
+        // 添加第一段圆弧（右上角）
+        ctx.arcTo(x1 + width , y1 , x1 + width , y1 + radius ,radius);
+        // 垂直方向向下画一条直线
+        ctx.lineTo(x1 + width , y1 + height - radius);
+        // 添加第二段圆弧 (右下角)
+        ctx.arcTo(x1 + width , y1 + height , x1 + width - radius , y1 + height , radius);
+        // 添加一条线到左下角的片段
+        ctx.lineTo(x1 + radius , y1 + height);
+        // 添加第三段圆弧 (左下角)
+        ctx.arcTo(x1 , y1 + height , x1, y1 + height -radius , radius);
+        // 垂直方向画一条线
+        ctx.lineTo(x1 , y1 + radius);
+        // 添加第四段圆弧 (左上角)
+        ctx.arcTo(x1 , y1 , x1 + radius , y1 , radius);
+        ctx.closePath();
+    }
+    var dom = document.getElementById('mc');
+    var ctx = dom.getContext('2d');
+    ctx.lineWidth = 3;
+    createRoundRect(ctx,30,30,200,100,20);
+    ctx.stroke();
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addEventListener</title>
+</head>
+<body>
+<!--将测试的div元素-->
+<div id="test">
+    <!--div元素的子元素：button-->
+    <input type="button" id="btn" value="单击"/>
+</div>
+<hr/>
+<div id="results"></div>
+<script>
+    var gotClick1 = function (event) {
+    //简单输出事件当前对象信息
+        document.getElementById('results').innerHTML += "事件捕获阶段： " + event.currentTarget + '<br/>';
+    };
+    //事件处理函数
+    function gotClick2(event) {
+        document.getElementById('results').innerHTML += "事件冒泡阶段： " + event.currentTarget + '<br/>';
+    };
+    document.getElementById('btn').addEventListener('click', gotClick1, true);
+    document.getElementById('test').addEventListener('click', gotClick1, true);
+    document.getElementById('btn').addEventListener('click', gotClick2, false);
+    document.getElementById('test').addEventListener('click', gotClick2, false);
+</script>
+</body>
+</html>
