@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试在线状态</title>
+    <!--实时监测状态是否在线-->
+</head>
+<body>
+<script>
+    window.addEventListener('offline', function () {
+        alert('您处于离线状态，所有信息将会缓存到本地');
+    }, true);
+    window.addEventListener('online', function () {
+        alert('在线状态')
+    }, true);
+    if (navigator.onLine){
+        alert('online');
+    }
+    else {
+        alert('offline');
+    }
+</script>
+</body>
+</html>

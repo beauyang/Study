@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--绘制柱状图-->
+    <meta charset="UTF-8">
+    <title>This is my first ECharts Demo</title>
+    <!--引入Echarts文件-->
+    <script src="js/echarts.js"></script>
+
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<script>
+    <!--基于给定的dom,初始化echarts-->
+    var myCharts = echarts.init(document.getElementById('main'));
+    var option = {
+        title : {
+            text : 'ECharts入门实例'
+        },
+        tooltip :{},
+        legend :{
+            data : ['销量']
+        },
+        xAxis :{
+            data : ['衬衫', '袜子', '裤子', '羊毛衫', '高跟鞋', '拖鞋']
+        },
+        yAxis : {
+           // data : ['test']
+        },
+        series : [{
+            name : '销量',
+            type : 'bar',
+            data : [5, 6, 8, 16, 49, 89]
+        }]
+    };
+    //使用刚才指定的配置项和数据项显示图表
+    myCharts.setOption(option);
+</script>
+</body>
+</html>

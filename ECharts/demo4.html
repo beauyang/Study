@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dataZoom</title>
+    <script src="js/echarts.js"></script>
+</head>
+<body>
+<div id="main" style="width: 600px;height:400px;"></div>
+<script>
+    <!--初始化echarts-->
+    var myChart = echarts.init(document.getElementById('main'));
+    myChart.setOption({
+        title : {
+            text: 'dataZoom示例'
+        },
+        xAxis : {
+            type : 'value' 
+        },
+        yAxis : {
+            type : 'value'
+        },
+        dataZoom : [ {
+            //这个dataZoom组件，默认控制x轴
+            type : 'slider',     //slider型dataZoom组件
+            xAxisIndex : 0,
+            start : 10,          //左边在10%的位置
+            end : 60             //右边在60%的位置
+            },
+            {
+              //这个dataZoom组件，也控制x轴
+                type : 'inside',  //inside型dataZoom组件
+                xAxisIndex : 0,
+                start : 10,
+                end : 60
+            },
+            {
+                //这个dataZoom组件，默认控制y轴
+                type : 'slider',     //slider型dataZoom组件
+                yAxisIndex : 0,
+                start : 30,          //左边在30%的位置
+                end : 80             //右边在80%的位置
+            },
+            {
+                //这个dataZoom组件，也控制y轴
+                type : 'inside',  //inside型dataZoom组件
+                yAxisIndex : 0,
+                start : 30,
+                end : 80
+            }
+
+        ],
+
+        series : [
+            {
+                type : 'scatter', // 这个是散点图
+                itemStyle : {
+                    normal : {
+                        opacity : 0.8
+                    }
+                },
+                symbolSize : function (val) {
+                    return val[2] * 40;
+                },
+                data : [["14.616","7.241","0.896"],["3.958","5.701","0.955"],["2.768","8.971","0.669"],["9.051","9.710","0.171"],["14.046","4.182","0.536"],["12.295","1.429","0.962"],["4.417","8.167","0.113"],["0.492","4.771","0.785"],["7.632","2.605","0.645"],["14.242","5.042","0.368"]]
+            }
+        ]
+    });
+</script>
+</body>
+</html>
