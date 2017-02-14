@@ -14,8 +14,35 @@
         var start  = parseInt(document.getElementById('start').value);
         var end  = parseInt(document.getElementById('end').value);
         //判断输入
-        if (start > end){
+        if (start >= end){
             return;
+        }
+        var worker = new Worker('js/work.js');
+        //定义需要的数据
+        var data = {
+            start : start,
+            end : end
+        };
+        //向worker线程提交数据
+        worker.postMessage(JSON.stringify(data));
+        worker.onmessage = function (event) {
+            var table = document.getElementById('show');
+            //清空表格原来所有的内容
+            table.innerHTML = "";
+            //获取Worker线程返回的数据
+            var result = event.data;
+            var nums = result.split(',');
+            //定义表格总共包含多少列
+            var COLS_NUM = 7;
+            for (var i = 0; i <=(nums.length - 1) / COLS_NUM; i++){
+                //添加表格行
+                var row = table.insertRow(i);
+                //循环插入7个单元格
+                for(var j = 0; j < COLS_NUM && i * COLS_NUM + j < nums.length - 1; j++){
+                    //插入单元格，并为单元格设置innerHTML属性
+                    row.insertCell(j).innerHTML = nums[i * COLS_NUM + j];
+                }
+            }
         }
     }
 </script>
