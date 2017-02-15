@@ -6,22 +6,22 @@
 </head>
 <body>
 起始值：<input type="text" id="start" name="start"/><br>
-结束值：<input type="text" id="end" name="start"/><br>
+结束值：<input type="text" id="end" name="end"/><br>
 <input type="button" value="计算" onclick="cal();"/>
-<table id="show"></table>
-<script>
+<table id="show" style="border: 1px solid black"></table>
+<script type="text/javascript">
     var cal = function () {
-        var start  = parseInt(document.getElementById('start').value);
-        var end  = parseInt(document.getElementById('end').value);
+        var start1  = parseInt(document.getElementById('start').value);
+        var end1  = parseInt(document.getElementById('end').value);
         //判断输入
-        if (start >= end){
+        if (start1 >= end1){
             return;
         }
         var worker = new Worker('js/work.js');
         //定义需要的数据
         var data = {
-            start : start,
-            end : end
+            start1 : start1,
+            end1 : end1
         };
         //向worker线程提交数据
         worker.postMessage(JSON.stringify(data));
@@ -31,7 +31,7 @@
             table.innerHTML = "";
             //获取Worker线程返回的数据
             var result = event.data;
-            var nums = result.split(',');
+            var nums = result.split(",");
             //定义表格总共包含多少列
             var COLS_NUM = 7;
             for (var i = 0; i <=(nums.length - 1) / COLS_NUM; i++){
