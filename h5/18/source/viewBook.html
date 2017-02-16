@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择图书</title>
+    <script type="text/javascript">
+        var chooseBook = function () {
+            // open new window
+            var targetWin = window.open('http://http://localhost:63342/Study/h5/18/source/chooseBook.html','_blank', 'width=510,height=300');
+            // when new window load;
+            targetWin.onload = function () {
+                var data = [
+                    {
+                        name : 'young',
+                        age : 23,
+                        info : 'test1'
+                    },
+                    {
+                        name : 'boo',
+                        age : 22,
+                        info : 'test2'
+                    },
+                    {
+                        name : 'zzz',
+                        age : 24,
+                        info : 'test3'
+                    }
+                ];
+                // send message
+                targetWin.postMessage(data, 'http://localhost:63342/Study/h5/18/source');
+            }
+        }
+        window.onmessage = function (event) {
+            if (event.origin != 'http://localhost:63342'){
+                return;
+            }
+            var show = document.getElementById('result');
+            //显示消息
+            show.innerHTML = ("您选择的为:<br/>"
+                + "name：" + event.date.name + "<br/>"
+                + "age：" + event.date.age + "<br/>"
+                + "info：" + event.date.info + "<br/>"
+            );
+
+        }
+    </script>
+</head>
+<body>
+<a href="#" onclick="chooseBook();">选择图书</a>
+<div id="result"></div>
+</body>
+</html>

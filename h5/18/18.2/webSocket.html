@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket</title>
+</head>
+<body>
+<script>
+    //创建websocket对象
+    var webSocket = new WebSocket('ws://127.0.0.1:3000');
+    //when connection connected
+    webSocket.onopen = function () {
+        alert('已打开连接');
+        //发送消息
+        webSocket.send("Hi,I'm young!")
+    }
+    // add listener to onmessage
+    webSocket.onmessage = function (event) {
+        //receive message from server
+        alert('接受到的消息是:' + event.data);
+    }
+</script>
+</body>
+</html>
