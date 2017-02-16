@@ -13,6 +13,9 @@
         alert('已打开连接');
         //发送消息
         webSocket.send("Hi,I'm young!")
+    };
+    webSocket.onerror = function () {
+        alert('建立连接失败！')
     }
     // add listener to onmessage
     webSocket.onmessage = function (event) {
