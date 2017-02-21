@@ -17,4 +17,4 @@ var createCanvas = function(rows , cols , cellWidth , cellHeight){
         tetris_ctx.moveTo(0 , i * CELL_SIZE);
         tetris_ctx.lineTo(TETRIS_COLS * CELL_SIZE , i * CELL_SIZE);
     }
-}
+};
