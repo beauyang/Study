@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width = device-width, initial-scale=1">
+    <title>BootStrap实例-列排序</title>
+    <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+    <!--以下两个场景用于IE8支持HTML5元素和媒体查询的，如果不可用可删除-->
+    <!--respond.js不支持file://方式的访问-->
+    <!--[if lt IE 9]-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <!--[endif]-->
+    <!--r如果要使用Bootstrap的JS插件，则必须引入Jquery-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!--Bootstrap的JS插件-->
+    <script src="../resources/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<h5>Bootstrap 网格系统另一个完美的特性，就是您可以很容易地以一种顺序编写列，然后以另一种顺序显示列。
+    您可以很轻易地改变带有 .col-md-push-* 和 .col-md-pull-* 类的内置网格列的顺序，其中 * 范围是从 1 到 11。
+    在下面的实例中，我们有两列布局，左列很窄，作为侧边栏。我们将使用 .col-md-push-* 和 .col-md-pull-* 类来互换这两列的顺序。</h5>
+<div class="container">
+    <h1>Hello World!</h1>
+<div class="row">
+    <p>排序前</p>
+    <div class="col-md-4" style="background-color: #dedef8; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+        我在左边
+    </div>
+    <div class="col-md-8" style="background-color: #dedef8; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+        我在右边
+    </div>
+</div>
+<div class="row">
+    <p>排序后</p>
+    <div class="col-md-4 col-md-push-8" style="background-color: #dedef8; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+        我在左边
+    </div>
+    <div class="col-md-8 col-md-pull-4" style="background-color: #dedef8; box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+        我在右边
+    </div>
+</div>
+</div>
+</body>
+</html>
