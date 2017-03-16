@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width = device-width, initial-scale=1">
+    <title>BootStrap image标签示例</title>
+    <!--Bootstrap基础模版-->
+    <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+    <!--以下两个场景用于IE8支持HTML5元素和媒体查询的，如果不可用可删除-->
+    <!--respond.js不支持file://方式的访问-->
+    <!--[if lt IE 9]-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <!--[endif]-->
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li>.img-rounded：添加 border-radius:6px 来获得图片圆角。</li>
+        <li>.img-circle：添加 border-radius:50% 来让整个图片变成圆形。</li>
+        <li>.img-thumbnail：添加一些内边距（padding）和一个灰色的边框。</li>
+    </ul>
+    <img src="../resources/media/picture/1.jpg" class="img-rounded">
+    <img src="../resources/media/picture/1.jpg" class="img-circle">
+    <img src="../resources/media/picture/1.jpg" class="img-thumbnail">
+    <p> .img-responsive类让图片支持响应式，将很好地扩展到父元素 (通过改变窗口大小查看效果):</p>
+    <img src="../resources/media/picture/1.jpg" class="img-responsive" alt="Cinque Terre" width="304" height="236">
+</div>
+</body>
+</html>
