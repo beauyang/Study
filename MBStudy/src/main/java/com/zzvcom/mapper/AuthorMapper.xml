@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzvcom.dao.AuthorMapper">
+    <!--自定义结果返回集-->
+    <resultMap id="author" type="author">
+        <id property="id" column="id" javaType="integer"></id>
+        <result property="username" column="username" javaType="string"></result>
+        <result property="password" column="password" javaType="string"></result>
+        <result property="email" column="email" javaType="string"></result>
+        <result property="bio" column="bio" javaType="string"></result>
+        <result property="favouriteSection" column="favouriteSection" javaType="string"></result>
+    </resultMap>
+    <!--sql-->
+    <insert id="insertAuthor" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO  t_author (username,password,email,bio,favouriteSection) VALUES
+        (#{username},#{password},#{email},#{bio},#{favouriteSection})
+    </insert>
+    <select id="selectAll" resultMap="author">
+        SELECT * FROM t_author
+    </select>
+</mapper>
