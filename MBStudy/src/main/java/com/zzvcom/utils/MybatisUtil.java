@@ -15,7 +15,7 @@ public class MybatisUtil {
      * @return SqlSessionFactory instance
      */
     public static SqlSessionFactory getSqlSessionFactory() {
-        String mybatisConfigPath = "mybatis-conf.xml";
+        String mybatisConfigPath = "config.mybatis/mybatis-conf.xml";
         try {
             InputStream inputStream = Resources.getResourceAsStream(mybatisConfigPath);
             if (sqlSessionFactory == null) {
@@ -37,4 +37,19 @@ public class MybatisUtil {
         return MybatisUtil.getSqlSessionFactory().openSession();
     }
 
+    /**
+     * Close SqlSession
+     *
+     * @param sqlSession
+     */
+    public static void CloseSession(SqlSession sqlSession){
+        if (sqlSession!=null){
+            try {
+                sqlSession.close();
+            }catch (Exception e){
+                e.printStackTrace();
+                sqlSession.close();
+            }
+        }
+    }
 }

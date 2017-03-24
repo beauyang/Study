@@ -20,4 +20,9 @@
     <select id="selectAll" resultMap="author">
         SELECT * FROM t_author
     </select>
+    <select id="findById" resultMap="author" parameterType="int">
+        SELECT *
+        FROM t_author
+        WHERE id =#{id}
+    </select>
 </mapper>

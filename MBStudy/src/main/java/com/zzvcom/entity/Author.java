@@ -11,6 +11,17 @@ public class Author {
     private String bio;
     private String favouriteSection;
 
+    public Author() {
+    }
+
+    public Author(String username, String password, String email, String bio, String favouriteSection) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.bio = bio;
+        this.favouriteSection = favouriteSection;
+    }
+
     public int getId() {
         return id;
     }

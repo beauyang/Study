@@ -13,4 +13,5 @@ public interface AuthorMapper {
     int updateAuthor(Author author);
     List<Author> getAllAuthors();
     int getAllAuthorsCount();
+    Author findById(int id);
 }
