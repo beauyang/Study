@@ -6,6 +6,8 @@ import com.zzvcom.service.AuthorService;
 import com.zzvcom.utils.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
 /**
  * Created by young on 2017/3/8.
  */
@@ -28,5 +30,26 @@ public class AuthorServiceImpl implements AuthorService {
                 sqlSession.close();
             }
         }
+    }
+
+    /**
+     * delete author info
+     * @param authorId
+     * @return The result of delete record
+     */
+    public int deleteAuthor(int authorId) {
+        SqlSession sqlSession = null;
+        sqlSession = MybatisUtil.getSqlSession();
+        AuthorMapper authorMapper = sqlSession.getMapper(AuthorMapper.class);
+        int result = authorMapper.deleteAuthor(authorId);
+        return result;
+    }
+
+    public int updateAuthor(Author author) {
+        return 0;
+    }
+
+    public List<Author> getAllAuthors() {
+        return null;
     }
 }

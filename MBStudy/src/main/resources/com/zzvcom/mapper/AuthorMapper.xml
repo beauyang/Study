@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzvcom.dao.AuthorMapper">
-    <resultMap id="author" type="com.zzvcom.entity.Author">
+    <resultMap id="author" type="author">
         <id property="id" column="id" javaType="integer"></id>
         <result property="username" column="username" javaType="string"></result>
         <result property="password" column="password" javaType="string"></result>
