@@ -15,7 +15,9 @@ public class MybatisUtil {
      * @return SqlSessionFactory instance
      */
     public static SqlSessionFactory getSqlSessionFactory() {
-        String mybatisConfigPath = "config.mybatis/mybatis-conf.xml";
+        //E:\Study\MBStudy\src\main\resources\config.mybatis
+//        String mybatisConfigPath = "src/main/resources/config.mybatis/mybatis-conf.xml";
+          String mybatisConfigPath = "config/mybatis/mybatis-conf.xml";
         try {
             InputStream inputStream = Resources.getResourceAsStream(mybatisConfigPath);
             if (sqlSessionFactory == null) {

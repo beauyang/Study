@@ -1,21 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzvcom.dao.AuthorMapper">
+  <resultMap id="BaseResultMap" type="com.zzvcom.entity.Author">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="bio" jdbcType="VARCHAR" property="bio" />
+    <result column="favouriteSection" jdbcType="VARCHAR" property="favouritesection" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, username, password, email, bio, favouriteSection
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_author
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_author
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zzvcom.entity.Author">
+    insert into t_author (id, username, password, 
+      email, bio, favouriteSection
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{bio,jdbcType=VARCHAR}, #{favouritesection,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertGenKey" parameterType="author" useGeneratedKeys="true" keyColumn="id">
+    INSERT INTO t_author(username,password,email,bio,favouritesection)
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    #{email,jdbcType=VARCHAR}, #{bio,jdbcType=VARCHAR}, #{favouritesection,jdbcType=VARCHAR}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zzvcom.entity.Author">
+    insert into t_author
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="bio != null">
+        bio,
+      </if>
+      <if test="favouritesection != null">
+        favouriteSection,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="bio != null">
+        #{bio,jdbcType=VARCHAR},
+      </if>
+      <if test="favouritesection != null">
+        #{favouritesection,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzvcom.entity.Author">
+    update t_author
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="bio != null">
+        bio = #{bio,jdbcType=VARCHAR},
+      </if>
+      <if test="favouritesection != null">
+        favouriteSection = #{favouritesection,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzvcom.entity.Author">
+    update t_author
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      bio = #{bio,jdbcType=VARCHAR},
+      favouriteSection = #{favouritesection,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
     <resultMap id="author" type="com.zzvcom.entity.Author">
-        <id property="id" column="id" javaType="integer"></id>
-        <result property="username" column="username" javaType="string"></result>
-        <result property="password" column="password" javaType="string"></result>
-        <result property="email" column="email" javaType="string"></result>
-        <result property="bio" column="bio" javaType="string"></result>
-        <result property="favouriteSection" column="favouriteSection" javaType="string"></result>
+        <id column="id" javaType="integer" property="id" />
+        <result column="username" javaType="string" property="username" />
+        <result column="password" javaType="string" property="password" />
+        <result column="email" javaType="string" property="email" />
+        <result column="bio" javaType="string" property="bio" />
+        <result column="favouriteSection" javaType="string" property="favouriteSection" />
     </resultMap>
     <!--sql-->
     <insert id="addAuthor" parameterType="author">
         INSERT INTO t_author (id,username) VALUES (#{id},#{username})
     </insert>
-    <insert id="insertAuthor" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertAuthor" keyProperty="id" useGeneratedKeys="true">
         INSERT INTO  t_author (username,password,email,bio,favouriteSection) VALUES
         (#{username},#{password},#{email},#{bio},#{favouriteSection})
     </insert>
@@ -23,7 +129,7 @@
         DELETE FROM t_author
         WHERE id = #{id}
     </delete>
-    <select id="getAllAuthors" resultType="author">
+    <select id="getAllAuthors" resultMap="BaseResultMap">
         SELECT
         t.id,
         t.username,
@@ -31,7 +137,7 @@
         t.email,
         t.bio,
         t.favourite_section favouriteSection
-        FROM author t
+        FROM t_author t
     </select>
     <select id="getAllAuthorsCount" resultType="int">
         SELECT count(1)
@@ -41,7 +147,7 @@
         UPDATE t_author
         SET username = #{username}
     </update>
-    <select id="findById" resultMap="author" parameterType="int">
+    <select id="findById" parameterType="int" resultMap="author">
         SELECT *
         FROM t_author
         WHERE id =#{id}

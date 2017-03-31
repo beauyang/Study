@@ -1,37 +1,45 @@
 package com.zzvcom.entity;
 
-/**
- * Created by young on 2017/3/8.
- */
 public class Author {
-    private int id;
+    private Integer id;
+
     private String username;
+
     private String password;
+
     private String email;
+
     private String bio;
-    private String favouriteSection;
 
-    public Author() {
-    }
+    private String favouritesection;
 
-    public Author(int id, String username) {
+    public Author(Integer id, String username) {
         this.id = id;
         this.username = username;
     }
 
-    public Author(String username, String password, String email, String bio, String favouriteSection) {
+    public Author(String username, String password, String email, String bio, String favouritesection) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.bio = bio;
-        this.favouriteSection = favouriteSection;
+        this.favouritesection = favouritesection;
     }
 
-    public int getId() {
+    public Author(Integer id, String username, String password, String email, String bio, String favouritesection) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.bio = bio;
+        this.favouritesection = favouritesection;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -40,7 +48,7 @@ public class Author {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -48,7 +56,7 @@ public class Author {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password == null ? null : password.trim();
     }
 
     public String getEmail() {
@@ -56,7 +64,7 @@ public class Author {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email == null ? null : email.trim();
     }
 
     public String getBio() {
@@ -64,15 +72,15 @@ public class Author {
     }
 
     public void setBio(String bio) {
-        this.bio = bio;
+        this.bio = bio == null ? null : bio.trim();
     }
 
-    public String getFavouriteSection() {
-        return favouriteSection;
+    public String getFavouritesection() {
+        return favouritesection;
     }
 
-    public void setFavouriteSection(String favouriteSection) {
-        this.favouriteSection = favouriteSection;
+    public void setFavouritesection(String favouritesection) {
+        this.favouritesection = favouritesection == null ? null : favouritesection.trim();
     }
 
     @Override
@@ -83,7 +91,7 @@ public class Author {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", bio='" + bio + '\'' +
-                ", favouriteSection='" + favouriteSection + '\'' +
+                ", favouritesection='" + favouritesection + '\'' +
                 '}';
     }
 }

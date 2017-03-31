@@ -4,14 +4,21 @@ import com.zzvcom.entity.Author;
 
 import java.util.List;
 
-/**
- * Created by young on 2017/3/8.
- */
 public interface AuthorMapper {
-    int addAuthor(Author author);
-    int deleteAuthor(int id);
-    int updateAuthor(Author author);
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Author record);
+
+    int insertSelective(Author record);
+
+    Author selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Author record);
+
+    int updateByPrimaryKey(Author record);
+
     List<Author> getAllAuthors();
+
     int getAllAuthorsCount();
-    Author findById(int id);
+    int insertGenKey(Author author);
 }

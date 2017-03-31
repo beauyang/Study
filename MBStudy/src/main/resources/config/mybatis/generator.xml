@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!-- 配置mysql 驱动jar包路径 -->
-    <classPathEntry  location="WEB-INF\lib\mysql-connector-java-5.1.41.jar"/>
+    <classPathEntry  location="src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.41.jar"/>
     <!-- 具体配置 -->
     <context id="mybatis" targetRuntime="MyBatis3">
         <!-- 为了防止生成的代码中有很多注释，比较难看，加入下面的配置控制 -->
@@ -23,16 +23,16 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
         <!-- 生成实体类模型的包名和位置-->
-        <javaModelGenerator targetPackage="entity" targetProject="com.zzvcom">
+        <javaModelGenerator targetPackage="com.zzvcom.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!-- 生成映射文件的包名和位置-->
-        <sqlMapGenerator targetPackage="entity" targetProject="com.zzvcom">
+        <sqlMapGenerator targetPackage="com.zzvcom.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成dao的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="dao" targetProject="com.zzvcom">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zzvcom.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 要对那些数据表进行生成操作，必须要有一个. -->

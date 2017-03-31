@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzvcom.dao.AuthorMapper">
-    <resultMap id="BaseResultMap" type="com.zzvcom.entity.Author">
+  <resultMap id="BaseResultMap" type="com.zzvcom.entity.Author">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -30,12 +30,12 @@
       #{email,jdbcType=VARCHAR}, #{bio,jdbcType=VARCHAR}, #{favouritesection,jdbcType=VARCHAR}
       )
   </insert>
-    <insert id="insertGenKey" parameterType="author" useGeneratedKeys="true" keyColumn="id">
-        INSERT INTO t_author(username,password,email,bio,favouritesection)
-        values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-      #{email,jdbcType=VARCHAR}, #{bio,jdbcType=VARCHAR}, #{favouritesection,jdbcType=VARCHAR}
-      )
-    </insert>
+  <insert id="insertGenKey" parameterType="author" useGeneratedKeys="true" keyColumn="id">
+    INSERT INTO t_author(username,password,email,bio,favouritesection)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    #{email,jdbcType=VARCHAR}, #{bio,jdbcType=VARCHAR}, #{favouritesection,jdbcType=VARCHAR}
+    )
+  </insert>
   <insert id="insertSelective" parameterType="com.zzvcom.entity.Author">
     insert into t_author
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -109,14 +109,6 @@
       favouriteSection = #{favouritesection,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <resultMap id="author" type="com.zzvcom.entity.Author">
-        <id column="id" javaType="integer" property="id" />
-        <result column="username" javaType="string" property="username" />
-        <result column="password" javaType="string" property="password" />
-        <result column="email" javaType="string" property="email" />
-        <result column="bio" javaType="string" property="bio" />
-        <result column="favouriteSection" javaType="string" property="favouriteSection" />
-    </resultMap>
     <!--sql-->
     <insert id="addAuthor" parameterType="author">
         INSERT INTO t_author (id,username) VALUES (#{id},#{username})
@@ -136,7 +128,7 @@
         t.password,
         t.email,
         t.bio,
-        t.favourite_section favouriteSection
+        t.favouritesection
         FROM t_author t
     </select>
     <select id="getAllAuthorsCount" resultType="int">

@@ -13,4 +13,7 @@ public interface AuthorService {
     int deleteAuthor(int authorId);
     int updateAuthor(Author author);
     List<Author> getAllAuthors();
+    int getAllAuthorsCount();
+    int insertGenKey(Author author);
+    int insertSelective(Author author);
 }

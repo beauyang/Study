@@ -37,7 +37,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="com.zzvcom.dao.AuthorMapper"/>
-        <package name="com.zzvcom.mapper"/>
+        <!--<mapper class="com.zzvcom.dao.AuthorMapper"/>-->
+        <mapper resource="com/zzvcom/mapper/AuthorMapper.xml"/>
     </mappers>
 </configuration>
